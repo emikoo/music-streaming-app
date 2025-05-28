@@ -2,27 +2,27 @@
 
 ![Database Schema](schema.svg)
 
-This database models a music streaming platform that tracks user interactions, music content, and social engagement patterns. It manages key elements such as users, artists, songs, playlists and analytics like top playlists, users total playtime and most played songs.
+This database models a music streaming analytics platform that focuses on data management, user behavior tracking, and content organization rather than actual music playback functionality. 
+The system serves as a comprehensive backend for analyzing music consumption patterns and managing digital music catalogs.
 
-Each user maintains a profile with authentication credentials and can create multiple playlists containing curated song collections. Users engage with the platform like following playlists created by others, and building their personal music libraries. The system tracks detailed listening patterns, including play timestamps and user preferences.
-
-Specific music content is organized through artist-song relationships, where each song belongs to one artist but can appear in multiple playlists. The platform supports both user-generated and curated playlists, with social features allowing users to discover and follow collections created by others. Play tracking enables the system to generate insights about popular content, user engagement patterns, and temporal listening trends.
 
 ## Entities
 
-**users**: Registered platform users with authentication credentials, profile customization, and account creation timestamps.
+**users** : Platform members with secure login credentials, customizable profile settings, and registration timestamps for account lifecycle tracking.
 
-**artists**: Music creators and performers with identifying information, country of origin, and profile imagery.
+**artists** : Musical performers and content creators featuring biographical details, geographic origin data, and visual branding assets.
 
-**songs**: Core music content with metadata including title, duration, album artwork, and artist attribution.
+**songs** : Digital audio tracks containing comprehensive metadata such as titles, playback duration, cover art, and creator associations.
 
-**playlists**: User-created or platform-curated song collections with naming, cover imagery, and creation tracking.
+**playlists** : Organized music collections supporting both community-generated and editorial curation with custom titles, visual covers, and creation monitoring.
 
-**playlist_songs**: Junction table mapping songs to playlists with timestamp tracking for playlist composition history.
+**playlist_songs** : Relational mapping structure connecting individual tracks to collections while maintaining chronological addition records.
 
-**plays**: User listening activity records capturing song consumption patterns with precise timestamp data.
+**plays** : Comprehensive listening event logs documenting user engagement patterns through detailed temporal interaction data.
 
-**follows**: Social relationship mapping between users and playlists they choose to follow for content discovery.
+**follows** : Social connection framework linking users to preferred playlists for personalized content discovery and recommendation systems.
+
+
 
 ## Scenarios
 
