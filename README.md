@@ -34,7 +34,7 @@ The system serves as a comprehensive backend for analyzing music consumption pat
 
 ## Data Integrity & Performance
 
-Data integrity is enforced through comprehensive foreign key relationships, unique constraints (preventing duplicate usernames and emails), and temporal consistency checks. Strategic indexing optimizes performance for frequent query patterns including:
+Data integrity is enforced through foreign key relationships, unique constraints (preventing duplicate usernames and emails), and temporal consistency checks. Strategic indexing optimizes performance for frequent query patterns including:
 
 - **Play Analytics**: Indexes on `plays(song_id)`, `plays(user_id)`, and `plays(played_at)` for efficient listening pattern analysis
 - **Social Features**: Indexes on `follows(playlist_id)` and `follows(user_id)` for rapid social network traversal
@@ -45,10 +45,10 @@ The system implements composite indexes for complex queries, partial indexes for
 
 ## Technical Implementation
 
-**Backend**: Flask (Python) with PostgreSQL database hosted on Supabase, utilizing raw SQL queries for optimal performance and precise control over database operations.
+**Backend**: Flask (Python) with PostgreSQL database hosted on Supabase.
 
 **Frontend**: Native Android application built with Kotlin, implementing MVVM architecture with Repository pattern, Retrofit for API communication, and modern Jetpack Compose UI framework.
 
-**Data Generation**: Sophisticated fake data generation using Faker library, creating realistic datasets with 15 users, 13 artists, 50 songs, 16 playlists, and comprehensive relationship data distributed across realistic temporal patterns.
+**Data Generation**: Fake data generation using Faker library.
 
-**API Design**: RESTful endpoints supporting full CRUD operations for all entities, with specialized endpoints for analytics, social features, and content discovery optimized for mobile application requirements.
+**API Design**: RESTful endpoints supporting full CRUD operations for all entities, with specialized endpoints for analytics and content discovery optimized for mobile application requirements.
