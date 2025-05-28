@@ -27,10 +27,9 @@ The system serves as a comprehensive backend for analyzing music consumption pat
 ## Scenarios
 
 - Recording new user registrations and profile management including authentication and personalization.
-- Tracking comprehensive listening behavior including song plays, duration, and temporal patterns.
-- Managing playlist creation, modification, and social sharing across the user community.
+- Tracking listening behavior including song plays, duration, and temporal patterns.
+- Managing playlist creation, modification, and social sharing.
 - Storing and analyzing user engagement patterns including follows, plays, and content discovery paths.
-- Efficient querying of music catalogs, user histories, playlist compositions, and social network relationships.
 - Generating analytics on popular content, user preferences, and platform engagement metrics.
 
 ## Data Integrity & Performance
