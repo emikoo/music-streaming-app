@@ -2,9 +2,9 @@
 
 ![Database Schema](schema.svg)
 
-This database models a comprehensive music streaming platform that tracks user interactions, music content, and social engagement patterns. It manages key elements such as users, artists, songs, playlists, listening behavior, and social connections within a music discovery ecosystem.
+This database models a music streaming platform that tracks user interactions, music content, and social engagement patterns. It manages key elements such as users, artists, songs, playlists and analytics like top playlists, users total playtime and most played songs.
 
-Each user maintains a profile with authentication credentials and can create multiple playlists containing curated song collections. Users engage with the platform by playing songs (tracked for analytics), following playlists created by others, and building their personal music libraries. The system tracks detailed listening patterns, including play timestamps and user preferences, enabling sophisticated recommendation algorithms and usage analytics.
+Each user maintains a profile with authentication credentials and can create multiple playlists containing curated song collections. Users engage with the platform like following playlists created by others, and building their personal music libraries. The system tracks detailed listening patterns, including play timestamps and user preferences.
 
 Specific music content is organized through artist-song relationships, where each song belongs to one artist but can appear in multiple playlists. The platform supports both user-generated and curated playlists, with social features allowing users to discover and follow collections created by others. Play tracking enables the system to generate insights about popular content, user engagement patterns, and temporal listening trends.
 
