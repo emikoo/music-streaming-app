@@ -98,44 +98,44 @@ def generate_plays(user_ids, song_ids, n):
     ]
 
 def populate_database():
-    print("🗑️  Clearing existing data...")
+    print("Clearing existing data...")
     clear_all_tables()
     
-    print("👥 Generating users and artists...")
+    print("Generating users and artists...")
     users_data = generate_users(CONFIG['users'])
     artists_data = generate_artists(CONFIG['artists'])
     
-    print("🎵 Inserting users and artists...")
+    print("Inserting users and artists...")
     user_ids = batch_insert("INSERT INTO users (username, email, profile_image) VALUES {} RETURNING id", users_data)
     artist_ids = batch_insert("INSERT INTO artists (name, country, profile_image) VALUES {} RETURNING id", artists_data)
     
     user_id_list = [user['id'] for user in user_ids] if user_ids else []
     artist_id_list = [artist['id'] for artist in artist_ids] if artist_ids else []
     
-    print("🎶 Generating songs and playlists...")
+    print("Generating songs and playlists...")
     songs_data = generate_songs(CONFIG['songs'], artist_id_list)
     playlists_data = generate_playlists(CONFIG['playlists'], user_id_list)
     
-    print("🎵 Inserting songs and playlists...")
+    print("Inserting songs and playlists...")
     song_ids = batch_insert("INSERT INTO songs (title, artist_id, duration, album_cover) VALUES {} RETURNING id", songs_data)
     playlist_ids = batch_insert("INSERT INTO playlists (name, is_curated, created_by, cover) VALUES {} RETURNING id", playlists_data)
     
     song_id_list = [song['id'] for song in song_ids] if song_ids else []
     playlist_id_list = [playlist['id'] for playlist in playlist_ids] if playlist_ids else []
     
-    print("🔗 Inserting playlist songs...")
+    print("Inserting playlist songs...")
     playlist_songs_data = generate_unique_combinations(playlist_id_list, song_id_list, CONFIG['playlist_songs'])
     batch_insert("INSERT INTO playlist_songs (playlist_id, song_id) VALUES {}", playlist_songs_data)
     
-    print("▶️  Inserting plays...")
+    print("Inserting plays...")
     plays_data = generate_plays(user_id_list, song_id_list, CONFIG['plays'])
     batch_insert("INSERT INTO plays (user_id, song_id, played_at) VALUES {}", plays_data)
     
-    print("👥 Inserting follows...")
+    print("Inserting follows...")
     follows_data = generate_unique_combinations(user_id_list, playlist_id_list, CONFIG['follows'])
     batch_insert("INSERT INTO follows (user_id, playlist_id) VALUES {}", follows_data)
     
-    print("✅ Database populated successfully!")
+    print("Database populated successfully!")
 
 if __name__ == '__main__':
     populate_database()
