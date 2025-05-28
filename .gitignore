@@ -39,6 +39,4 @@ env/
 Thumbs.db
 
 src/test_connection.py
-src/reset_database.py# Development and testing files
-src/test_connection.py
 src/reset_database.py
