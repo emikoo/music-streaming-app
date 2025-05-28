@@ -33,15 +33,13 @@ The system serves as a comprehensive backend for analyzing music consumption pat
 - Generating analytics on popular content, user preferences, and platform engagement metrics.
 
 ## Data Integrity & Performance
+Data integrity is maintained through foreign key constraints, unique constraints on usernames and emails, and validation checks for duration and email format. Performance optimization relies on strategic indexing for core operations:
 
-Data integrity is enforced through foreign key relationships, unique constraints (preventing duplicate usernames and emails), and temporal consistency checks. Strategic indexing optimizes performance for frequent query patterns including:
-
-- **Play Analytics**: Indexes on `plays(song_id)`, `plays(user_id)`, and `plays(played_at)` for efficient listening pattern analysis
-- **Social Features**: Indexes on `follows(playlist_id)` and `follows(user_id)` for rapid social network traversal
-- **Content Discovery**: Indexes on `songs(title)`, `artists(name)` for fast search capabilities
-- **Playlist Management**: Indexes on `playlists(created_by)` and `playlist_songs(playlist_id)` for efficient collection operations
-
-The system implements composite indexes for complex queries, partial indexes for specific use cases, and optimized join strategies for multi-table operations. Query performance is enhanced through strategic aggregation patterns and efficient GROUP BY operations for analytics workloads.
+- **Analytics Queries** : Indexes on `plays(song_id)` , `plays(user_id)` , and `plays(played_at)` enable fast aggregation for listening statistics and temporal analysis
+- **Social Network Operations** : Indexes on `follows(playlist_id)` and `follows(user_id)` support efficient playlist discovery and user relationship queries
+- **Search and Discovery** : Indexes on `users(username)` , `users(email)` , and `songs(artist_id)` accelerate content lookup and user authentication
+- **Content Management** : Indexes on `playlists(created_by)` and` playlist_songs(playlist_id)` optimize playlist operations and song collection queries
+The database design supports efficient JOIN operations across related tables, with optimized query patterns for analytics workloads including `GROUP BY` aggregations for play counts, user statistics, and content popularity metrics. Constraint validation ensures data quality while strategic indexing maintains sub-second response times for complex analytical queries.
 
 ## Technical Implementation
 
