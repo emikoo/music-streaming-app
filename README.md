@@ -1,6 +1,6 @@
 # Music Streaming Service - Database Course Project
 
-![Database Schema](schema.png)
+![Database Schema](schema.svg)
 
 This database models a comprehensive music streaming platform that tracks user interactions, music content, and social engagement patterns. It manages key elements such as users, artists, songs, playlists, listening behavior, and social connections within a music discovery ecosystem.
 
