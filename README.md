@@ -1,5 +1,78 @@
 # Music Streaming Service - Database Course Project
 
+```dbml
+Project MusicStreamingApp {
+  database_type: "PostgreSQL"
+}
+
+Table users {
+  id integer [primary key, increment]
+  username varchar(50) [unique, not null]
+  email varchar(100) [unique, not null]
+  profile_image varchar(255)
+  created_at timestamp [default: `CURRENT_TIMESTAMP`]
+  Note: 'Platform users with authentication and profile data'
+}
+
+Table artists {
+  id integer [primary key, increment]
+  name varchar(100) [not null]
+  country varchar(50)
+  profile_image varchar(255)
+  Note: 'Music creators and performers'
+}
+
+Table songs {
+  id integer [primary key, increment]
+  title varchar(100) [not null]
+  artist_id integer [ref: > artists.id]
+  duration integer [not null, note: 'Duration in seconds']
+  album_cover varchar(255)
+  Note: 'Core music content with metadata'
+}
+
+Table playlists {
+  id integer [primary key, increment]
+  name varchar(100) [not null]
+  is_curated boolean [default: false]
+  created_by integer [ref: > users.id]
+  cover varchar(255)
+  created_at timestamp [default: `CURRENT_TIMESTAMP`]
+  Note: 'User-created or platform-curated song collections'
+}
+
+Table playlist_songs {
+  playlist_id integer [ref: > playlists.id]
+  song_id integer [ref: > songs.id]
+  added_at timestamp [default: `CURRENT_TIMESTAMP`]
+  
+  indexes {
+    (playlist_id, song_id) [pk]
+  }
+  
+  Note: 'Many-to-many relationship between playlists and songs'
+}
+
+Table plays {
+  id integer [primary key, increment]
+  user_id integer [ref: > users.id]
+  song_id integer [ref: > songs.id]
+  played_at timestamp [default: `CURRENT_TIMESTAMP`]
+  Note: 'User listening activity tracking'
+}
+
+Table follows {
+  user_id integer [ref: > users.id]
+  playlist_id integer [ref: > playlists.id]
+  followed_at timestamp [default: `CURRENT_TIMESTAMP`]
+  
+  indexes {
+    (user_id, playlist_id) [pk]
+  }
+  Note: 'Social relationships - users following playlists'
+}
+```
+
 This database models a comprehensive music streaming platform that tracks user interactions, music content, and social engagement patterns. It manages key elements such as users, artists, songs, playlists, listening behavior, and social connections within a music discovery ecosystem.
 
 Each user maintains a profile with authentication credentials and can create multiple playlists containing curated song collections. Users engage with the platform by playing songs (tracked for analytics), following playlists created by others, and building their personal music libraries. The system tracks detailed listening patterns, including play timestamps and user preferences, enabling sophisticated recommendation algorithms and usage analytics.
