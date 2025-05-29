@@ -8,19 +8,19 @@ The system serves as a comprehensive backend for analyzing music consumption pat
 
 ## Entities
 
-**users** : Platform members with secure login credentials, customizable profile settings, and registration timestamps for account lifecycle tracking.
+**users** : platform members with secure login credentials, customizable profile settings, and registration timestamps.
 
-**artists** : Musical performers and content creators featuring biographical details, geographic origin data, and visual branding assets.
+**artists** : musical performers and content creators featuring biographical details, geographic origin data, and visual branding assets.
 
-**songs** : Digital audio tracks containing comprehensive metadata such as titles, playback duration, cover art, and creator associations.
+**songs** : tracks containing metadata such as titles, playback duration, cover art, and creator associations.
 
-**playlists** : Organized music collections supporting both community-generated and editorial curation with custom titles, visual covers, and creation monitoring.
+**playlists** : organized music collections with custom titles, visual covers, and creation monitoring.
 
-**playlist_songs** : Relational mapping structure connecting individual tracks to collections while maintaining chronological addition records.
+**playlist_songs** : relational mapping structure connecting individual tracks to collections.
 
-**plays** : Comprehensive listening event logs documenting user engagement patterns through detailed temporal interaction data.
+**plays** : listening event logs documenting user engagement patterns.
 
-**follows** : Social connection framework linking users to preferred playlists for personalized content discovery and recommendation systems.
+**follows** : social connection framework linking users to preferred playlists.
 
 
 
