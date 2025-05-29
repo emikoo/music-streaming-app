@@ -5,6 +5,15 @@
 This database models a music streaming analytics platform that focuses on data management, user behavior tracking, and content organization rather than actual music playback functionality. 
 The system serves as a comprehensive backend for analyzing music consumption patterns and managing digital music catalogs.
 
+What you need to know to reconstruct this schema :
+
+- **User Management** : Authentication, profiles, and user lifecycle tracking
+- **Content Catalog** : Artists, songs, and metadata management
+- **Playlist Ecosystem** : User-generated and curated content collections
+- **Behavioral Analytics** : Play tracking, listening patterns, and engagement metrics
+- **Social Features** : Following relationships and community engagement
+- **Performance Optimization** : Strategic indexing for analytics workloads
+
 
 ## Entities
 
